@@ -1,38 +1,81 @@
-.App {
-    text-align: center;
+/* VideoEditor Custom Styles */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.timeline::-webkit-scrollbar {
+  display: none;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Hide scrollbar for IE, Edge and Firefox */
+.timeline {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Custom slider styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #4b5563;
+  border-radius: 5px;
+  background-image: linear-gradient(#3b82f6, #3b82f6);
+  background-repeat: no-repeat;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.25);
 }
 
-.App-link {
-    color: #61dafb;
+input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Transitions */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Cursor styles */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-grabbing {
+  cursor: grabbing;
+}
+
+.cursor-grab {
+  cursor: grab;
+}
+
+/* Timeline segment highlight */
+.segment-highlight {
+  background: rgba(59, 130, 246, 0.3);
+  position: absolute;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Player container */
+.player-container {
+  aspect-ratio: 16/9;
+  max-height: 70vh;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Tailwind won't override these so being specific */
+.react-player video {
+  object-fit: contain !important;
 }
